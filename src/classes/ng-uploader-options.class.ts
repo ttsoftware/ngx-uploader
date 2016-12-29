@@ -14,7 +14,7 @@ export interface INgUploaderOptions {
   authToken?: string;
   fieldName?: string;
   fieldReset?: boolean;
-  previewUrl?: string;
+  previewUrl?: boolean;
   calculateSpeed?: boolean;
   filterExtensions?: boolean;
   allowedExtensions?: string[];
@@ -36,7 +36,7 @@ export class NgUploaderOptions implements INgUploaderOptions {
   authToken?: string;
   fieldName?: string;
   fieldReset?: boolean;
-  previewUrl?: string;
+  previewUrl?: boolean;
   calculateSpeed?: boolean;
   filterExtensions?: boolean;
   allowedExtensions?: string[];
@@ -57,7 +57,7 @@ export class NgUploaderOptions implements INgUploaderOptions {
     this.authToken = obj.authToken != null ? obj.authToken : null;
     this.fieldName = obj.fieldName != null ? obj.fieldName : 'file';
     this.fieldReset = obj.fieldReset != null ? obj.fieldReset : null;
-    this.previewUrl = obj.previewUrl != null ? obj.previewUrl : null;
+    this.previewUrl = obj.previewUrl != null ? obj.previewUrl : false;
     this.calculateSpeed = obj.calculateSpeed != null ? obj.calculateSpeed : true;
     this.filterExtensions = obj.filterExtensions != null ? obj.filterExtensions : false;
     this.allowedExtensions = obj && obj.allowedExtensions ? obj.allowedExtensions : [];
