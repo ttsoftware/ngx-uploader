@@ -38,7 +38,7 @@ export class NgFileSelectDirective implements OnChanges {
 
     this.uploader._emitter.subscribe((data: any) => {
       this.onUpload.emit(data);
-      if (data.done && this.files && this.files.length) {
+      if (data.done && this.files && this.files.length && Array.isArray(this.files)) {
         this.files = this.files.filter(f => f.name !== data.originalName);
       }
     });
@@ -66,7 +66,11 @@ export class NgFileSelectDirective implements OnChanges {
       return;
     }
 
-    if (this.options.filterExtensions && this.options.allowedExtensions && this.files && this.files.length) {
+    if (this.options.filterExtensions
+      && this.options.allowedExtensions
+      && this.files
+      && this.files.length
+      && Array.isArray(this.files)) {
       this.files = this.files.filter(f => {
         if (this.options.allowedExtensions.indexOf(f.type) !== -1) {
           return true;
