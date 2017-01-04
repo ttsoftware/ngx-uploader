@@ -1,7 +1,6 @@
-import { EventEmitter, Injectable, OnChanges, Provider } from '@angular/core';
-import { NgUploaderOptions } from '../classes/ng-uploader-options.class';
-import { UploadedFile } from '../classes/uploaded-file.class';
-import { UploadRejected } from '../classes/upload-rejected.class';
+import {EventEmitter, Injectable, Provider} from "@angular/core";
+import {NgUploaderOptions} from "../classes/ng-uploader-options.class";
+import {UploadedFile} from "../classes/uploaded-file.class";
 
 @Injectable()
 export class NgUploaderService {
@@ -23,7 +22,13 @@ export class NgUploaderService {
   }
 
   uploadFilesInQueue(): void {
-    let newFiles = this._queue.filter((f) => { return !f.uploading; });
+    let newFiles = this._queue.filter((f) => {
+      return !f.uploading;
+    });
+    if (newFiles.length == 0) {
+      // no new files - emit empty event
+      this._emitter.emit({});
+    }
     newFiles.forEach((f) => {
       this.uploadFile(f);
     });
@@ -95,9 +100,9 @@ export class NgUploaderService {
     xhr.onreadystatechange = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         uploadingFile.onFinished(
-            xhr.status,
-            xhr.statusText,
-            xhr.response
+          xhr.status,
+          xhr.statusText,
+          xhr.response
         );
         this.removeFileFromQueue(queueIndex);
         this._emitter.emit(uploadingFile);
@@ -143,10 +148,10 @@ export class NgUploaderService {
     }
   }
 
-  createFileUrl(file: File){
+  createFileUrl(file: File) {
     let reader: FileReader = new FileReader();
     reader.addEventListener('load', () => {
-        this._previewEmitter.emit(reader.result);
+      this._previewEmitter.emit(reader.result);
     });
     reader.readAsDataURL(file);
   }
@@ -164,7 +169,9 @@ export class NgUploaderService {
   }
 
   inQueue(file: any): boolean {
-    let fileInQueue = this._queue.filter((f) => { return f === file; });
+    let fileInQueue = this._queue.filter((f) => {
+      return f === file;
+    });
     return fileInQueue.length ? true : false;
   }
 

@@ -8,9 +8,9 @@ import {
   Inject,
   OnChanges,
   SimpleChange
-} from '@angular/core';
-import { NgUploaderService } from '../services/ngx-uploader';
-import { INgUploaderOptions, NgUploaderOptions, UploadedFile, UploadRejected } from '../classes';
+} from "@angular/core";
+import {NgUploaderService} from "../services/ngx-uploader";
+import {NgUploaderOptions, UploadedFile, UploadRejected} from "../classes";
 
 @Directive({
   selector: '[ngFileSelect]'
@@ -25,9 +25,9 @@ export class NgFileSelectDirective implements OnChanges {
 
   files: any[] = [];
 
-  constructor(
-    @Inject(ElementRef) public el: ElementRef,
-    @Inject(NgUploaderService) public uploader: NgUploaderService) { }
+  constructor(@Inject(ElementRef) public el: ElementRef,
+              @Inject(NgUploaderService) public uploader: NgUploaderService) {
+  }
 
   ngOnChanges(changes: {[propName: string]: SimpleChange}) {
     if (!this.options) {
@@ -77,7 +77,7 @@ export class NgFileSelectDirective implements OnChanges {
         }
 
         let ext: string = f.name.split('.').pop();
-        if (this.options.allowedExtensions.indexOf(ext) !== -1 ) {
+        if (this.options.allowedExtensions.indexOf(ext) !== -1) {
           return true;
         }
 

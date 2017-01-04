@@ -1,10 +1,10 @@
 const gulp = require('gulp');
 const typedoc = require('gulp-typedoc');
 
-gulp.task('docs', () => {
+gulp.task('docs', () = > {
   return gulp.src([
-    'index.ts',
-    '!node_modules/**/*'])
+      'index.ts',
+      '!node_modules/**/*'])
     .pipe(typedoc({
       name: 'ngx-uploader docs',
       mode: 'file',
@@ -22,4 +22,5 @@ gulp.task('docs', () => {
       ignoreCompilerErrors: true,
       noLib: true
     }));
-});
+})
+;

@@ -10,7 +10,10 @@
     "declaration": true,
     "skipLibCheck": true,
     "stripInternal": true,
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "rootDir": ".",
     "types": [
       "node"
@@ -30,6 +33,6 @@
   ],
   "angularCompilerOptions": {
     "genDir": "aot",
-    "skipMetadataEmit" : false
+    "skipMetadataEmit": false
   }
 }

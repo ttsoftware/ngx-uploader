@@ -9,9 +9,9 @@ import {
   OnChanges,
   OnInit,
   SimpleChange
-} from '@angular/core';
-import { NgUploaderService } from '../services/ngx-uploader';
-import { INgUploaderOptions, NgUploaderOptions, UploadedFile, UploadRejected } from '../classes';
+} from "@angular/core";
+import {NgUploaderService} from "../services/ngx-uploader";
+import {NgUploaderOptions, UploadedFile, UploadRejected} from "../classes";
 
 @Directive({
   selector: '[ngFileDrop]'
@@ -21,15 +21,15 @@ export class NgFileDropDirective implements OnChanges, OnInit {
   @Input() events: EventEmitter<any>;
   @Output() onUpload: EventEmitter<any> = new EventEmitter();
   @Output() onPreviewData: EventEmitter<any> = new EventEmitter();
-  @Output() onFileOver:EventEmitter<any> = new EventEmitter();
+  @Output() onFileOver: EventEmitter<any> = new EventEmitter();
   @Output() onUploadRejected: EventEmitter<UploadRejected> = new EventEmitter<UploadRejected>();
   @Output() beforeUpload: EventEmitter<UploadedFile> = new EventEmitter<UploadedFile>();
 
   files: any[] = [];
 
-  constructor(
-    @Inject(ElementRef) public el: ElementRef,
-    @Inject(NgUploaderService) public uploader: NgUploaderService) { }
+  constructor(@Inject(ElementRef) public el: ElementRef,
+              @Inject(NgUploaderService) public uploader: NgUploaderService) {
+  }
 
   ngOnInit() {
     this.uploader._emitter.subscribe((data: any) => {
@@ -108,7 +108,7 @@ export class NgFileDropDirective implements OnChanges, OnInit {
         }
 
         let ext: string = f.name.split('.').pop();
-        if (this.options.allowedExtensions.indexOf(ext) !== -1 ) {
+        if (this.options.allowedExtensions.indexOf(ext) !== -1) {
           return true;
         }
 
@@ -124,12 +124,12 @@ export class NgFileDropDirective implements OnChanges, OnInit {
   }
 
   @HostListener('dragover', ['$event'])
-  public onDragOver(event:any):void {
+  public onDragOver(event: any): void {
     this.onFileOver.emit(true);
   }
 
   @HostListener('dragleave', ['$event'])
-  public onDragLeave(event:any):any {
+  public onDragLeave(event: any): any {
     this.onFileOver.emit(false);
   }
 
