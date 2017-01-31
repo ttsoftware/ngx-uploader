@@ -1,38 +1,38 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "sourceMap": false,
-    "noEmitHelpers": false,
-    "noImplicitAny": true,
-    "declaration": true,
-    "skipLibCheck": true,
-    "stripInternal": true,
-    "lib": [
-      "es6",
-      "dom"
+    "compilerOptions": {
+        "target": "es5",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": false,
+        "noEmitHelpers": false,
+        "noImplicitAny": true,
+        "declaration": true,
+        "skipLibCheck": true,
+        "stripInternal": true,
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "rootDir": ".",
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "src/**/*.ts"
     ],
-    "rootDir": ".",
-    "types": [
-      "node"
-    ]
-  },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "bundles",
-    "dist"
-  ],
-  "files": [
-    "index.ts",
-    "ngx-uploader.ts"
-  ],
-  "angularCompilerOptions": {
-    "genDir": "aot",
-    "skipMetadataEmit": false
-  }
+    "exclude": [
+        "node_modules",
+        "bundles",
+        "dist"
+    ],
+    "files": [
+        "index.ts",
+        "ngx-uploader.ts"
+    ],
+    "angularCompilerOptions": {
+        "genDir": "aot",
+        "skipMetadataEmit": false
+    }
 }

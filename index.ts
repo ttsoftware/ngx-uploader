@@ -10,6 +10,6 @@ export {NgUploaderOptions, UploadedFile, UploadRejected} from './src/classes';
 export {NgUploaderModule} from './src/module/ngx-uploader.module';
 
 export const UPLOAD_DIRECTIVES: any[] = [
-  NgFileSelectDirective,
-  NgFileDropDirective
+    NgFileSelectDirective,
+    NgFileDropDirective
 ];
